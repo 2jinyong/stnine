@@ -34,7 +34,7 @@ branch -- 분기
 
 4. git switch 뉴브랜치  : 브랜치 이동
 
-5. git swtch -c 뉴브랜치  : 브랜치 만들고 동시에 이동
+5. git switch -c 뉴브랜치  : 브랜치 만들고 동시에 이동
 
 6. git branch -d 삭제할 브랜치
 - 지워질 브랜치에만 커밋이 되어 있을경우 강제삭제 git branch -D 강제삭제 브랜치명

@@ -46,9 +46,9 @@ $(function(){
    //페이지버튼 생성
    for(let i=0; i < totalPage; i++){
       if(i==0){ 
-        $('#page').append(`<li data-index="${i}" class="active"></li>`);
+              $('#page').append(`<li data-index="${i}" class="active"></li>`);
       }else{
-        $('#page').append(`<li data-index="${i}"></li>`);
+              $('#page').append(`<li data-index="${i}"></li>`);
       }       
    }
 
@@ -61,7 +61,7 @@ $(function(){
   
      function updatePage(){
         $('#page li').removeClass('active')
-        .eq(pgCount).addClass('active');
+                     .eq(pgCount).addClass('active');
      }
 
      function bestSlide(){

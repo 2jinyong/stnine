@@ -9,7 +9,6 @@
         .box{
             width: 500px;
             height: 200px;
-            background-color: gray;
         }
         .red{
             background-color: rgb(233, 95, 95);
@@ -17,13 +16,18 @@
         .blue{
             background-color: rgb(107, 107, 224);
         }
+        .gray{
+            background-color: gray;
+        }
         .slide{
             width: 500px;
             margin: 0 auto;
             border: 1px solid black;
             overflow: hidden;
+            
         }
         .slidein{
+            position: relative;
             width: 1500px;
             display: flex;
         }
@@ -31,22 +35,26 @@
     <script src="/js/jquery.min.js"></script>
     <script>
         $(function(){
-            function slidebox(){
+            setInterval (function(){
                 $('.slidein').animate({
                     left: '-500px'
-                },500);
-            }
-            setInterval(slidebox,3000);
+                },1000, function(){
+                    $(this).append($(this).children().first());
+                    $(this).css('left',0)
+                    
+                });
+            },3000);
         });
     </script>
 </head>
 <body>
     <div class="slide">
         <div class="slidein">
-            <div class="box"></div>
+            <div class="box gray"></div>
             <div class="box red"></div>
             <div class="box blue"></div>
         </div>
     </div>
+    
 </body>
 </html>
