@@ -1,0 +1,19 @@
+mysql --version      mysql 버전 확인
+
+mysql 접속
+mysql -u유저아디 -p 엔터
+비밀번호 (눈에 보이지 않음)
+
+mysql 나가기
+quit;
+exit;
+
+show databases;  db의 리스트를 출력하라.
+use 데이터베이스이름;   db를 사용한다.
+
+show tables;
+
+구조  desc 테이블이름;
+목록 select host, user from user;
+
+select 컬럼명 or *from 테이블명 where 조건절 

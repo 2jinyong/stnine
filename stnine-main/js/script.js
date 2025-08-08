@@ -154,16 +154,64 @@ fetch("./js/best.json")
                         </a>
                     </div>
          `;
-      }
+        }
       slidePage += `<div class="row slide-page">${colPage}</div>`;
 
-   }
+    }
+
+
      document.querySelector(".slide-wrapper-in").innerHTML = slidePage;
 
         const pageHeight = $('.slide-page:first-child').outerHeight(true);
         $('.slide-wrapper').css('height', pageHeight+"px");
         wrapperWidth = $(".slide-wrapper").width();
      
+})
+.catch(err=> console.error("🤢 데이터 로딩에 실패했습니다.", err));
+
+fetch("./js/main.json")
+.then(res => res.json())
+.then(list => {
+    const htmlArr = list.map(data => {
+        //색상처리
+        const colorHtml = data.color.map(co=>{
+            return `<span class="${co}"></span>`;
+        }).join("");
+        return `
+        <div class="col-md-3 col-12 mb-5">
+            <div class="card" style="width: 18rem;">
+                <a href="#" class="mycard">
+                    <div class="card-img">
+                        <img src="./${data.img}" alt="${data.alt}">
+
+                        <div class="btn-box">
+                            <button type="button" class="best-cart">
+                                <i class="ri-shopping-bag-4-line"></i>
+                            </button>
+                            <button type="button" class="best-heart">
+                                <i class="ri-heart-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="card-body">
+                        <div class="pd-color">
+                            ${colorHtml}
+                        </div>
+                        <div>${data.title}</div>
+                        <div>
+                            <del>${data.cost}원</del>
+                            <span class="sail">${data.sale}</span>
+                            <span class="money">${data.price}원</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        `
+            
+    });
+    document.getElementById("list-item").innerHTML = htmlArr.join("");
 })
 .catch(err=> console.error("🤢 데이터 로딩에 실패했습니다.", err));
 
